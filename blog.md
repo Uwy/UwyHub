@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Blog
+nav_id: blog
 ---
 # Latest Posts
 

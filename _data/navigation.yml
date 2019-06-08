@@ -1,6 +1,10 @@
 - name: Home
+  nav_id: home
   link: /
 - name: About
-  link: /about
+  nav_id: about
+  link: /about/
 - name: Blog
-  link: /blog
+  nav_id: blog
+  link: /blog/
+  
