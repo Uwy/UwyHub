@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+@import "yorha-variables.scss";
+
+$nav-font-size: 1.4rem;
+$nav-font-weight: 100;
+
+
+
+nav {
+    display: flex;
+
+    margin: 2rem 4rem 0rem 4rem;
+
+    .content {
+        flex: 0;
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        flex: 1;
+        margin: 0;
+
+        display: flex;
+        align-content: stretch;
+        align-items: stretch;
+        list-style: none;
+        padding-left: 0;
+
+
+        li {
+            flex: 1;
+            margin-bottom: 1rem;
+            margin-right: 2rem;
+
+            text-transform: uppercase;
+            font-size: $nav-font-size;
+            font-weight: $nav-font-weight;
+
+            //letter-spacing: .7rem;
+
+            &:last-child {
+                margin-right: 0rem;
+            }
+
+            &.current {
+                margin-bottom: 0rem;
+
+                a {
+                    background-color: transparent;
+                    color: $bgColor;
+                    border-color: $color;
+
+                    &::before {
+                        width: 100%;
+                        top: 0px;
+                        bottom: 0px;
+                    }
+                }
+            }
+
+            a {
+                height: 100%;
+                display: block;
+
+                text-decoration: none;
+
+                cursor: pointer;
+                font: inherit;
+                border: none;
+                //padding: .4rem 1rem;
+                padding: 0.6rem;
+
+                background-color: rgba($color, .35);
+                color: $color;
+                box-sizing: border-box;
+                position: relative;
+                border: 1px solid transparent;
+                border-left: none;
+                border-right: none;
+
+                img {
+                    height: $nav-font-size;
+                    box-shadow: unset;
+                }
+
+                label {
+                    vertical-align: top;
+                    line-height: $nav-font-size;
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    z-index: -1;
+                    left: 0;
+                    top: 3px;
+                    bottom: 3px;
+                    width: 0;
+                    background-color: $color;
+                    transition: width .2s;
+                }
+
+                &::after {
+                    content: "";
+                    display: none;
+                    position: absolute;
+                    background: $color;
+                    width: 100%;
+                    height: 2px;
+                    left: 0;
+                    bottom: -4px;
+                }
+
+                &:hover,
+                &:focus {
+                    background-color: transparent;
+                    color: $bgColor;
+                    border-color: $color;
+
+                    &::before {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

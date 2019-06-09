@@ -21,6 +21,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://uwy.moe" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: Uwyphi
 github_username:  Uwy
+encoding: utf-8
 
 # Build settings
 markdown: kramdown

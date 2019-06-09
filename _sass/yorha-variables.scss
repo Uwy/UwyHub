@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+$bgColor: #C8C2AA;
+$color: #4D493E;
+$letterSpacing: .1rem;
+$boxShadow: 3px 3px 0 rgba($color, .6);
+
+@font-face {
+    font-family: "Rodin";
+    src: url("../fonts/SCE-PS3-RD-R-LATIN.TTF");
+}
+
+@font-face {
+    font-family: "Rodin";
+    font-weight: bold;
+    src: url("../fonts/SCE-PS3-RD-B-LATIN.TTF");
+}
+
+
+@font-face {
+    font-family: "Rodin";
+    font-weight: bold;
+    font-style: italic;
+    src: url("../fonts/SCE-PS3-RD-BI-LATIN.TTF");
+}
+
+
+@font-face {
+    font-family: "Rodin";
+    font-style: italic;
+    src: url("../fonts/SCE-PS3-RD-I-LATIN.TTF");
+}

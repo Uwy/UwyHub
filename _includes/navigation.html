@@ -1,9 +1,22 @@
 <nav>
+    <div class="content"></div>
     <ul>
         {% for item in site.data.navigation %}
-        <li>
-            <a href="{{ item.link }}" {% if page.nav_id == item.nav_id %}class="current"{% endif %}>{{ item.name }}</a>
-        </li>
+            {% if page.nav_id == item.nav_id %}
+                <li class="current">
+                    <a href="{{ item.link }}">
+                        <img src="{{ item.icon_selected_link }}">
+                        <label>{{ item.name }}</label>
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{{ item.link }}">
+                        <img src="{{ item.icon_link }}">
+                        <label>{{ item.name }}</label>
+                    </a>
+                </li>
+            {% endif %}
         {% endfor %}
     </ul>
 </nav>
