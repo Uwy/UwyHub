@@ -45,6 +45,7 @@ nav {
 
             &.current {
                 margin-bottom: 0rem;
+                transition: margin-bottom .2s;
 
                 a {
                     background-color: transparent;
