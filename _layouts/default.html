@@ -1,29 +1,32 @@
 <!doctype html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/assets/css/styles.css">
     {% seo %}
-  </head>
-  <body>
+</head>
+
+<body>
     {% include navigation.html %}
 
     <div class="pattern">
-      <div class="container">
-        <div class="pattern-inner"></div>
-      </div>
+        <div class="container">
+            <div class="pattern-inner"></div>
+        </div>
     </div>
 
-    <main>
-      <div class="container">
+    <main class="container">
         {{ content }}
-      </div>
     </main>
 
     <div class="pattern">
-      <div class="container">
-        <div class="pattern-inner"></div>
-      </div>
+        <div class="container">
+            <div class="pattern-inner"></div>
+        </div>
     </div>
-  </body>
+
+    <div class="overlay"></div>
+</body>
+
 </html>

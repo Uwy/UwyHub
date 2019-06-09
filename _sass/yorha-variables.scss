@@ -5,6 +5,12 @@ $color: #4D493E;
 $letterSpacing: .1rem;
 $boxShadow: 3px 3px 0 rgba($color, .6);
 
+$screen-blur-size: 30vw;
+$screen-blur-color: rgba($color, 0.4);
+
+$nav-font-size: 1.4rem;
+$nav-font-weight: 100;
+
 @font-face {
     font-family: "Rodin";
     src: url("../fonts/SCE-PS3-RD-R-LATIN.TTF");
