@@ -2,7 +2,6 @@
 
 @import "yorha-variables.scss";
 
-
 nav {
     display: flex;
 
@@ -21,8 +20,12 @@ nav {
         align-content: stretch;
         align-items: stretch;
         list-style: none;
-        padding-left: 0;
+        padding: 0;
 
+        // clear ul default artifacts
+        &::after {
+            content: none;
+        }
 
         li {
             flex: 1;
@@ -96,17 +99,6 @@ nav {
                     width: 0;
                     background-color: $color;
                     transition: width .2s;
-                }
-
-                &::after {
-                    content: "";
-                    display: none;
-                    position: absolute;
-                    background: $color;
-                    width: 100%;
-                    height: 2px;
-                    left: 0;
-                    bottom: -4px;
                 }
 
                 &:hover,
