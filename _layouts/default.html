@@ -10,21 +10,13 @@
 <body>
     {% include navigation.html %}
 
-    <div class="pattern">
-        <div class="container">
-            <div class="pattern-inner"></div>
-        </div>
-    </div>
+    {% include pattern.html %}
 
     <main class="container">
         {{ content }}
     </main>
 
-    <div class="pattern">
-        <div class="container">
-            <div class="pattern-inner"></div>
-        </div>
-    </div>
+    {% include pattern.html %}
 
     <div class="overlay"></div>
 </body>
