@@ -6,12 +6,25 @@
     position: fixed;
     bottom: 4rem;
     right: 4rem;
-    z-index: 2;
-    padding: 0.5rem;
+    z-index: 1;
+    padding: 0.4rem;
 
     #visualizer {
         height: 2rem;
         width: 100%;
+    }
+
+    #progress-container {
+        position: relative;
+        height: 0.2rem;
+        background: rgba($color, .2);
+
+        #progress {
+            background: $color;
+            position: absolute;
+            left: 0;
+            height: 100%
+        }
     }
 
     .buttons-container {
@@ -106,7 +119,7 @@
 
             //width: 100%; /* Full-width */
             height: 100%;
-            background: #a9a692;
+            background: rgba($color, .2);
             outline: none;
             /* Remove outline */
 
@@ -116,7 +129,7 @@
                 // appearance: none;
                 //width: 25px; /* Set a specific slider handle width */
                 //height: 25px; /* Slider handle height */
-                background: #4B483F;
+                background: $color;
                 /* Green background */
                 cursor: pointer;
                 /* Cursor on hover */
@@ -125,7 +138,7 @@
             &::-moz-range-thumb {
                 //width: 25px; /* Set a specific slider handle width */
                 //height: 25px; /* Slider handle height */
-                background: #4B483F;
+                background: $color;
                 /* Green background */
                 cursor: pointer;
                 /* Cursor on hover */
