@@ -81,6 +81,9 @@ ready(function () {
         let muteButton = document.getElementById('mute-button');
         let volRange = document.getElementById('vol-range');
 
+        
+        // Init values
+        audio.volume = volRange.value;
         let isPlaying = false;
 
         audio.addEventListener('playing', function () {
@@ -93,7 +96,19 @@ ready(function () {
             removeClass(playPause, 'playing');
         });
 
-        volRange.addEventListener('onchange', function () {
+        audio.addEventListener('volumechange', function() {
+            if (audio.volume != volRange) {
+                volRange.value = audio.volume;
+            }
+            if (audio.muted) {
+                addClass(muteButton, 'muted');
+            } else {
+                removeClass(muteButton, 'muted');
+            }
+        })
+
+
+        volRange.addEventListener('change', function () {
             audio.volume = volRange.value;
         });
 
@@ -107,12 +122,9 @@ ready(function () {
 
         muteButton.addEventListener('click', function () {
             audio.muted = !audio.muted;
-            if (audio.muted) {
-                addClass(muteButton, 'muted');
-            } else {
-                removeClass(muteButton, 'muted');
-            }
         });
+
+
     })();
 
     // Setup progress bar
