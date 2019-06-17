@@ -175,8 +175,6 @@ ready(function () {
                 // we want to be updated no more than once every (duration / 10000) seconds
                 // or duration / 10 milliseconds
                 timer = setTimeout(advance, audio.duration / 10);
-                console.log(audio.duration / 10);
-
             }
         }
 
