@@ -139,7 +139,7 @@ ready(function () {
         });
 
         audio.addEventListener('volumechange', function() {
-            if (audio.muted) {
+            if (audio.muted || audio.volume === 0) {
                 addClass(muteButton, 'muted');
             } else {
                 removeClass(muteButton, 'muted');
@@ -156,27 +156,31 @@ ready(function () {
         let percent = 0;
 
         audio.addEventListener("playing", function (_event) {
-            let duration = _event.target.duration;
-            advance(duration, audio);
+            advance();
         });
 
         audio.addEventListener("pause", function (_event) {
             clearTimeout(timer);
         });
 
-        let advance = function (duration, element) {
-            let progress = document.getElementById("progress");
-            let increment = 10 / duration
-            percent = Math.min(increment * element.currentTime * 10, 100);
+        let advance = function () {
+            percent = Math.min((audio.currentTime / audio.duration) * 100, 100).toFixed(2);
             progress.style.width = percent + '%'
-            startTimer(duration, element);
+            startTimer();
         }
 
-        let startTimer = function (duration, element) {
+        let startTimer = function () {
             if (percent < 100) {
-                timer = setTimeout(function () { advance(duration, element) }, 100);
+                // 10000 possibles values between 0.00% and 100.00%, 
+                // we want to be updated no more than once every (duration / 10000) seconds
+                // or duration / 10 milliseconds
+                timer = setTimeout(advance, audio.duration / 10);
+                console.log(audio.duration / 10);
+
             }
         }
+
+        
     })();
 
 });
