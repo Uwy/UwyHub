@@ -24,6 +24,8 @@ function removeClass(el, className) {
 
 
 ready(function () {
+    'use strict';
+
     let audio = document.getElementById('audio');
     let player = document.getElementById('player');
 
@@ -75,15 +77,9 @@ ready(function () {
         renderFrame();
     })();
 
-    // Setup buttons
+    // Setup playpause
     (function () {
         let playPause = document.getElementById('play-pause-button');
-        let muteButton = document.getElementById('mute-button');
-        let volRange = document.getElementById('vol-range');
-
-        
-        // Init values
-        audio.volume = volRange.value;
         let isPlaying = false;
 
         audio.addEventListener('playing', function () {
@@ -96,22 +92,6 @@ ready(function () {
             removeClass(playPause, 'playing');
         });
 
-        audio.addEventListener('volumechange', function() {
-            if (audio.volume != volRange) {
-                volRange.value = audio.volume;
-            }
-            if (audio.muted) {
-                addClass(muteButton, 'muted');
-            } else {
-                removeClass(muteButton, 'muted');
-            }
-        })
-
-
-        volRange.addEventListener('change', function () {
-            audio.volume = volRange.value;
-        });
-
         playPause.addEventListener('click', function () {
             if (isPlaying) {
                 audio.pause();
@@ -119,12 +99,52 @@ ready(function () {
                 audio.play();
             }
         });
+    })();
+
+    // Setup volume
+    (function() {
+        let volRange = document.getElementById('vol-range');
+        audio.volume = 0.1;
+        
+        noUiSlider.create(volRange, {
+            start: 0.1,
+            connect: [true, false],
+            range: {
+                'min': 0,
+                'max': 1
+            }
+        });
+
+        volRange.noUiSlider.on('update', function (values, handle) {
+            let volume = values[handle];
+            if (audio.volume != volume) {
+                audio.volume = volume;               
+            }
+        });
+
+        /*
+        audio.addEventListener('volumechange', function() {
+            if (audio.volume != volRange) {
+                volRange.noUiSlider.set([audio.volume]);
+            }
+        });*/
+    })();
+
+    // Setup mute
+    (function() {
+        let muteButton = document.getElementById('mute-button');
 
         muteButton.addEventListener('click', function () {
             audio.muted = !audio.muted;
         });
 
-
+        audio.addEventListener('volumechange', function() {
+            if (audio.muted) {
+                addClass(muteButton, 'muted');
+            } else {
+                removeClass(muteButton, 'muted');
+            }
+        });
     })();
 
     // Setup progress bar
@@ -146,7 +166,7 @@ ready(function () {
 
         let advance = function (duration, element) {
             let progress = document.getElementById("progress");
-            increment = 10 / duration
+            let increment = 10 / duration
             percent = Math.min(increment * element.currentTime * 10, 100);
             progress.style.width = percent + '%'
             startTimer(duration, element);

@@ -9,6 +9,8 @@
     z-index: 1;
     padding: 0.4rem;
 
+    width: 12rem;
+
     #visualizer {
         height: 2rem;
         width: 100%;
@@ -28,6 +30,39 @@
     }
 
     .buttons-container {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+
+        #vol-range {
+            margin: 0.4rem;
+
+            flex: 1;
+
+            &.noUi-horizontal {
+                height: unset;
+            }
+
+            &.noUi-target {
+                background: unset;
+                border-radius: unset;
+                border: unset;
+                box-shadow: unset;
+            }
+
+            .noUi-handle {
+                display: none;
+            }
+            .noUi-connects {
+                background: rgba($color, .2);
+                .noUi-connect {
+                    background: $color;
+
+                }
+            }
+
+        }
+
         button {
             padding: unset;
             background-color: unset;
@@ -37,6 +72,7 @@
             border: unset;
             border-left: unset;
             border-right: unset;
+            margin: 0.2rem;
 
             &:hover,
             &:focus {
@@ -69,24 +105,36 @@
 
             &::after {
                 content: unset;
+                
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+
                 display: unset;
-                position: unset;
                 background: unset;
                 width: unset;
                 height: unset;
                 z-index: unset;
-
-                top: unset;
-                bottom: unset;
-                left: unset;
-                right: unset;
 
                 background-color: unset;
                 transition: unset;
             }
 
             &#play-pause-button {
+                position: relative;
+
+                height: 1.5rem;
+                width: 1.5rem;
+
                 &::after {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+
                     content: url(../img/baseline-play_arrow-24px.svg);
                 }
 
@@ -98,52 +146,24 @@
             }
 
             &#mute-button {
+                position: relative;
+
+                height: 1.5rem;
+                width: 1.5rem;
+
                 &::after {
-                    content: url(../img/baseline-volume_off-24px.svg);
+                    content: url(../img/baseline-volume_up-24px.svg);
                 }
 
                 &.muted {
                     &::after {
-                        content: url(../img/baseline-volume_up-24px.svg);
+                        content: url(../img/baseline-volume_off-24px.svg);
+
                     }
                 }
             }
         }
-
-
-
-        input[type=range] {
-            -webkit-appearance: none;
-            /* Override default CSS styles */
-            // appearance: none;
-
-            //width: 100%; /* Full-width */
-            height: 100%;
-            background: rgba($color, .2);
-            outline: none;
-            /* Remove outline */
-
-            &::-webkit-slider-thumb {
-                -webkit-appearance: none;
-                /* Override default look */
-                // appearance: none;
-                //width: 25px; /* Set a specific slider handle width */
-                //height: 25px; /* Slider handle height */
-                background: $color;
-                /* Green background */
-                cursor: pointer;
-                /* Cursor on hover */
-            }
-
-            &::-moz-range-thumb {
-                //width: 25px; /* Set a specific slider handle width */
-                //height: 25px; /* Slider handle height */
-                background: $color;
-                /* Green background */
-                cursor: pointer;
-                /* Cursor on hover */
-            }
-        }
+        
     }
 
 
