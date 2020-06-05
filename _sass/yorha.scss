@@ -56,15 +56,23 @@ h1 {
 }
 
 .pattern {
+    display: flex;
+
     border-top: 2px solid $color;
+
     .pattern-inner {
+        flex: 1;
         height: 40px;
         background-color: $color;
         mask-image: url(../img/pattern.svg);
-        mask-repeat: round no-repeat, no-repeat;
-    
+        mask-repeat: space no-repeat, no-repeat;
+    }
 
-    }   
+    .pattern-inner-complement {        
+        height: 5px;
+        width: 10px;
+        background-color: $color;
+    }
 }
 
 
@@ -124,8 +132,8 @@ main {
 .content {
     padding-left: 4rem;
     background-image: linear-gradient(90deg, rgba($color, .2), rgba($color, .2) 14px,
-        transparent 14px, transparent 20px,
-        rgba($color, .2) 20px, rgba($color, .2) 23px, transparent 23px);
+            transparent 14px, transparent 20px,
+            rgba($color, .2) 20px, rgba($color, .2) 23px, transparent 23px);
     margin-bottom: 2rem;
 }
 
