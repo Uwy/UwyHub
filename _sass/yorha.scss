@@ -55,25 +55,6 @@ h1 {
     }
 }
 
-.pattern {
-    display: flex;
-
-    border-top: 2px solid $color;
-
-    .pattern-inner {
-        flex: 1;
-        height: 40px;
-        background-color: $color;
-        mask-image: url(../img/pattern.svg);
-        mask-repeat: space no-repeat, no-repeat;
-    }
-
-    .pattern-inner-complement {        
-        height: 5px;
-        width: 10px;
-        background-color: $color;
-    }
-}
 
 
 
